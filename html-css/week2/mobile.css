@@ -1,0 +1,83 @@
+@media screen and (max-width: 600px) {
+  * {
+    font-family: arial;
+    width: 100%;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+  }
+
+  /* TITLE BAR */
+  .title-bar > h1 {
+    font-size: medium;
+  }
+  .title-bar > h4 {
+    font-size: smaller;
+  }
+
+  /* NAVIGATION BAR */
+  .navigation-bar {
+    width: 20%;
+    display: block;
+  }
+
+  /* OFFICE PICTURE */
+  .office-picture {
+    height: 150px;
+  }
+
+  /* WEB DEVELOPMENT */
+  .web-development {
+    flex-direction: column-reverse;
+  }
+  .practical-information,
+  .industry-information {
+    display: inline-block;
+    width: 80%;
+    flex-grow: 1;
+    padding-left: 5%;
+  }
+  .section-right-heading,
+  .section-left-heading {
+    font-size: small;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 5%;
+    padding-bottom: 2%;
+  }
+  .section-right-text,
+  .section-left-text {
+    font-size: 10px;
+    text-align: justify;
+  }
+
+  /* LOGO SECTION */
+  .logo-section {
+    flex-direction: column;
+  }
+  .gallery,
+  .logos {
+    display: inline-block;
+    width: 80%;
+    flex-grow: 1;
+    padding-left: 5%;
+  }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: flex-start;
+  }
+
+  /* ABOUT SECTION */
+  .about-sections {
+    flex-direction: column;
+    width: 80%;
+  }
+  .list-items-head {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 5%;
+  }
+  .list-items {
+    margin-top: 5px;
+  }
+}
