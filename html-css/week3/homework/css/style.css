@@ -79,7 +79,7 @@ label {
   display: inline-block;
   width: 12rem;
   text-align: right;
-  padding-left: 1rem;
+  padding-left: .5rem;
 }
 .details-data {
   border: 1px solid black;
