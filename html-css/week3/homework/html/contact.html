@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Custom Tailor</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+
+  <body>
+    <img class="logo" src="../img/logo.jpg" alt="logo" />
+    <nav class="navigation-bar">
+      <a class="nav-item" href="../html/details.html">Details</a>
+      <a class="nav-item" href="../html/contact.html">Contact</a>
+      <a class="nav-item" href="../html/preferences.html">Preferences</a>
+      <a class="nav-item" href="../html/payment.html">Payment</a>
+    </nav>
+
+    <div class="heading-section">
+      <h1 class="main-heading">
+        Sign Up to yourcustomtailor.com
+      </h1>
+      <h2 class="step-text">Step 2/4 - how can we reach you?</h2>
+    </div>
+    <div>
+      <h3 class="progress-bar-text">Progress</h3>
+      <progress class="progress-bar" max="100" value="40"></progress>
+      <p class="text">
+        We will probably need to stay in touch somehow. Let me know how can we
+        reach you?
+      </p>
+    </div>
+
+    <form>
+      <div class="details">
+        <label id="email" for="email">Email*</label>
+        <input
+          class="details-data"
+          id="email"
+          name="email"
+          type="email"
+          required
+        />
+        <label id="phone" for="phone">Phone</label>
+        <input
+          class="details-data"
+          id="phone"
+          name="phone"
+          type="number"
+          pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+        />
+      </div>
+
+      <div class="details">
+        <label id="password" for="password">Password*</label>
+        <input
+          class="details-data"
+          id="password"
+          name="password"
+          type="password"
+          minlength="10"
+          pattern="(?=.*[a-z])(?=.*[A-Z])"
+          required
+        />
+      </div>
+      <div class="details">
+        <label id="re-enter" for="re-enter">Re-enter Password*</label>
+        <input
+          class="details-data"
+          id="re-enter"
+          name="re-enter"
+          type="password"
+          minlength="10"
+          pattern="(?=.*[a-z])(?=.*[A-Z])"
+          required
+        />
+      </div>
+      <p class="text">I want to sign up for the newsletter</p>
+
+      <div class="details">
+        <label id="weekly-news" for="toggle1">Weekly News </label>
+        <input type="radio" id="toggle1" name="news" value="checked" checked />
+        <label id="monthly-news" for="toggle1">Monthly News </label>
+        <input type="radio" id="toggle1" name="news" value="checked" />
+        <label id="no-news" for="toggle1">Don't send me News </label>
+        <input type="radio" id="toggle1" name="news" value="checked" />
+      </div>
+
+      <button
+        id="button"
+        type="submit"
+        onclick="document.location = '../html/preferences.html'"
+      >
+        Next Step
+      </button>
+    </form>
+  </body>
+</html>

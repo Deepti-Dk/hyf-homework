@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Custom Tailor</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+
+  <body>
+    <img class="logo" src="../img/logo.jpg" alt="logo" />
+    <nav class="navigation-bar">
+      <a class="nav-item" href="../html/details.html">Details</a>
+      <a class="nav-item" href="../html/contact.html">Contact</a>
+      <a class="nav-item" href="../html/preferences.html">Preferences</a>
+      <a class="nav-item" href="../html/payment.html">Payment</a>
+    </nav>
+
+    <div class="heading-section">
+      <h1 class="main-heading">
+        Sign Up to yourcustomtailor.com
+      </h1>
+      <h2 class="step-text">Step 4/4 - Payment</h2>
+    </div>
+    <div>
+      <h3 class="progress-bar-text">Progress</h3>
+      <progress class="progress-bar" max="100" value="90"></progress>
+      <p class="text">
+        Please fill in your payment data
+      </p>
+    </div>
+
+    <form>
+      <div class="details">
+        <label id="cardname" for="cardname">Name on card</label>
+        <input
+          class="details-data"
+          id="cardname"
+          name="cardname"
+          type="text"
+          required
+        />
+      </div>
+      <div class="details">
+        <label id="cardtype" for="cardtype"> Card Type</label>
+        <select class="details-data" id="countryname" name="cardtype" required>
+          <option value="blank"></option>
+          <option value="master">Master Card</option>
+          <option value="visa">Visa Card</option>
+          <option value="dk">Dan Kort</option>
+        </select>
+      </div>
+
+      <div class="details">
+        <label id="ccnum" for="ccnum">Credit Card Number</label>
+        <input
+          class="details-data"
+          id="ccnum"
+          name="ccnum"
+          type="number"
+          pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+          required
+        />
+        <label id="fname" for="firstname">First Name</label>
+        <input
+          class="details-data"
+          id="firstname"
+          name="firstname"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="details">
+        <label id="expmnth" for="expmnth">Expiry Month</label>
+        <input
+          class="details-data-sm"
+          id="expmnth"
+          name="expmnth"
+          type="number"
+          required
+        />
+        <label id="expyr" for="expyr">Expiry Year</label>
+        <input
+          class="details-data-sm"
+          id="expyr"
+          name="expyr"
+          type="number"
+          required
+        />
+      </div>
+
+      <div class="details">
+        <label id="ccv" for="ccv">CCV</label>
+        <input
+          class="details-data-sm"
+          id="ccv"
+          name="ccv"
+          type="number"
+          minlength="3"
+          maxlength="3"
+          pattern="[0-9][0-9][0-9]"
+          required
+        />
+      </div>
+    </form>
+  </body>
+</html>

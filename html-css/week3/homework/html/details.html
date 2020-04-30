@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Custom Tailor</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+
+  <body>
+    <img class="logo" src="../img/logo.jpg" alt="logo" />
+    <nav class="navigation-bar">
+      <a class="nav-item" href="../html/details.html">Details</a>
+      <a class="nav-item" href="../html/contact.html">Contact</a>
+      <a class="nav-item" href="../html/preferences.html">Preferences</a>
+      <a class="nav-item" href="../html/payment.html">Payment</a>
+    </nav>
+
+    <div class="heading-section">
+      <h1 class="main-heading">
+        Sign Up to yourcustomtailor.com
+      </h1>
+      <p class="text">
+        We can't wait to help you improve ypur life style and gain the attention
+        from people around you!
+        <br /><br />
+        Sign up below to save upto 70% on apparel, hand-bags and cosmetics. Our
+        agents are busy picking the best offers that match your preferences and
+        style. Every week we will send you a hand-picked selection - we just
+        need to know a few details about you first...
+      </p>
+
+      <h2 class="step-text">Step 1/4 - tell us who you are?</h2>
+    </div>
+
+    <div>
+      <h3 class="progress-bar-text">Progress</h3>
+      <progress class="progress-bar" max="100" value="10"></progress>
+      <p class="text">
+        Nice to meet you. Let's spend a minute to get to know each other? Please
+        enter the following:
+      </p>
+    </div>
+    <hr />
+
+    <form>
+      <div class="details">
+        <label id="fname" for="firstname">First Name*</label>
+        <input
+          class="details-data"
+          id="firstname"
+          name="firstname"
+          type="text"
+          required
+        />
+        <label id="lname" for="lastname">Last Name*</label>
+        <input
+          class="details-data"
+          id="lastname"
+          name="lastname"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="details">
+        <label id="country" for="country"> Country*</label>
+        <select class="details-data" id="countryname" name="country" required>
+          <option value="blank"></option>
+          <option value="denmark">Denmark</option>
+          <option value="sweden">Sweden</option>
+          <option value="norway">Norway</option>
+          <option value="finland">Finland</option>
+        </select>
+      </div>
+
+      <div class="details">
+        <label id="address-text" for="address">Street Address*</label>
+        <input
+          class="details-data"
+          id="address"
+          name="address"
+          type="text"
+          required
+        />
+        <label id="pcode" for="postcode">Post Code*</label>
+        <input
+          class="details-data"
+          id="postcode"
+          name="postcode"
+          type="number"
+          required
+          minlength="4"
+          maxlength="4"
+          pattern="[0-9][0-9][0-9][0-9]"
+          required
+        />
+      </div>
+
+      <div class="details">
+        <label id="profile-text" for="profile"
+          >Profile Description*
+          <p class="profile-info">
+            Please provide a short <br />description of yourself to be<br />
+            displayed on our social<br />
+            community pages.
+          </p>
+        </label>
+
+        <input
+          class="profile-data"
+          id="profile"
+          name="profile"
+          type="textbox"
+          maxlength="500"
+        />
+      </div>
+
+      <p class="text">
+        Use the same address for billing and shipping? Uncheck below to fill out
+        a seperate shipping address.
+      </p>
+
+      <div class="details">
+        <label id="shipping-text" for="toggle">Shipping Address </label>
+        <input
+          type="checkbox"
+          id="toggle"
+          name="ship"
+          value="checked"
+          checked
+        />
+        <br /><br />
+        <div class="ship-details">
+          <label id="fname" for="firstname">First Name*</label>
+          <input
+            class="details-data"
+            id="firstname"
+            name="firstname"
+            type="text"
+            required
+          />
+          <label id="lname" for="lastname">Last Name*</label>
+          <input
+            class="details-data"
+            id="lastname"
+            name="lastname"
+            type="text"
+            required
+          />
+        </div>
+        <div class="ship-details">
+          <label id="country" for="country"> Country*</label>
+          <select class="details-data" id="countryname" name="country" required>
+            <option value="blank"></option>
+            <option value="denmark">Denmark</option>
+            <option value="sweden">Sweden</option>
+            <option value="norway">Norway</option>
+            <option value="finland">Finland</option>
+          </select>
+        </div>
+        <div class="ship-details">
+          <label id="address-text" for="address">Street Address*</label>
+          <input
+            class="details-data"
+            id="address"
+            name="address"
+            type="text"
+            required
+          />
+          <label id="pcode" for="postcode">Post Code*</label>
+          <input
+            class="details-data"
+            id="postcode"
+            name="postcode"
+            type="number"
+            minlength="4"
+            maxlength="4"
+            pattern="[0-9][0-9][0-9][0-9]"
+            required
+          />
+        </div>
+        <div class="ship-details">
+          <label id="profile-text" for="profile"
+            >Profile Description*
+            <p class="profile-info">
+              Please provide a short <br />description of yourself to be<br />
+              displayed on our social<br />
+              community pages.
+            </p>
+          </label>
+          <input
+            class="profile-data"
+            id="profile"
+            name="profile"
+            type="textbox"
+            maxlength="500"
+          />
+        </div>
+      </div>
+
+      <button
+        id="button"
+        type="submit"
+        onclick="document.location = '../html/contact.html'"
+      >
+        Next Step
+      </button>
+    </form>
+  </body>
+</html>

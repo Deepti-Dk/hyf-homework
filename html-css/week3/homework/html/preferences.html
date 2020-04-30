@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Custom Tailor</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+
+  <body>
+    <img class="logo" src="../img/logo.jpg" alt="logo" />
+    <nav class="navigation-bar">
+      <a class="nav-item" href="../html/details.html">Details</a>
+      <a class="nav-item" href="../html/contact.html">Contact</a>
+      <a class="nav-item" href="../html/preferences.html">Preferences</a>
+      <a class="nav-item" href="../html/payment.html">Payment</a>
+    </nav>
+
+    <div class="heading-section">
+      <h1 class="main-heading">
+        Sign Up to yourcustomtailor.com
+      </h1>
+      <h2 class="step-text">
+        Step 3/4 - Time to learn about your preferences?
+      </h2>
+    </div>
+    <div>
+      <h3 class="progress-bar-text">Progress</h3>
+      <progress class="progress-bar" max="100" value="70"></progress>
+      <p class="text">
+        What kind of items are you interested now?
+      </p>
+    </div>
+
+    <form>
+      <div class="details">
+        <label id="apparel" for="toggle">Apparel</label>
+        <input
+          type="checkbox"
+          id="toggle"
+          name="pref"
+          value="checked"
+          checked
+        />
+        <label id="jewellery" for="toggle">Jewellery</label>
+        <input
+          type="checkbox"
+          id="toggle"
+          name="pref"
+          value="checked"
+          checked
+        />
+        <br />
+        <label id="accessories" for="toggle">Accessories</label>
+        <input
+          type="checkbox"
+          id="toggle"
+          name="pref"
+          value="checked"
+          checked
+        />
+        <label id="shoes" for="toggle">Shoes</label>
+        <input
+          type="checkbox"
+          id="toggle"
+          name="pref"
+          value="checked"
+          checked
+        />
+        <br />
+        <label id="handbags" for="toggle">Handbags</label>
+        <input type="checkbox" id="toggle" name="pref" value="checked" />
+      </div>
+      <p class="text">
+        Choose the images that best resemble your style
+      </p>
+      <div>
+        <ul class="choices">
+          <li class="choices-list">
+            <img class="image" src="../img/apparel1.jpg" alt="apparel" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" checked />
+          </li>
+          <li class="choices-list">
+            <img class="image" src="../img/partywear.jpg" alt="partywear" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" />
+          </li>
+          <li class="choices-list">
+            <img class="image" src="../img/jewellery.jpg" alt="partywear" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" checked />
+          </li>
+          <li class="choices-list">
+            <img
+              class="image"
+              src="../img/partyjewellery.jpg"
+              alt="partywear"
+            />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" checked />
+          </li>
+        </ul>
+        <br /><br />
+        <ul class="choices">
+          <li class="choices-list">
+            <img class="image" src="../img/handbags.jpg" alt="apparel" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" />
+          </li>
+          <li class="choices-list">
+            <img class="image" src="../img/acc.jpg" alt="partywear" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" />
+          </li>
+          <li class="choices-list">
+            <img class="image" src="../img/partyshoes.jpg" alt="partywear" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" checked />
+          </li>
+          <li class="choices-list">
+            <img class="image" src="../img/sportshoes.jpg" alt="partywear" />
+            <br />
+            <label id="select" for="toggle">Select</label>
+            <input type="checkbox" id="toggle" name="img" checked />
+          </li>
+        </ul>
+      </div>
+
+      <button
+        id="button"
+        type="submit"
+        onclick="document.location = '../html/payment.html'"
+      >
+        Next Step
+      </button>
+    </form>
+  </body>
+</html>
