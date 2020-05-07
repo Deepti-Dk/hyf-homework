@@ -1,6 +1,8 @@
-Top 3 Countries Visited
--------------------------------
+Countries visited
+----------------------------
 
+Australia
+America
 Italy
 France
-Australia
+
