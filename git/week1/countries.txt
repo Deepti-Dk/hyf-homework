@@ -1,8 +1,0 @@
-Countries visited
-----------------------------
-
-Australia
-America
-Italy
-France
-
