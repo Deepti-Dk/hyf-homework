@@ -1,4 +1,4 @@
-let firstWords = [
+const firstWords = [
   'Zenith',
   'Venture',
   'Startup',
@@ -10,7 +10,7 @@ let firstWords = [
   'Upward',
   'Primary',
 ];
-let secondWords = [
+const secondWords = [
   'Point',
   'Awesome',
   'Interesting',
