@@ -1,7 +1,7 @@
 // Calculating age by future year
 
-let yearOfBirth = 1980;
-let yearFuture = 2035;
-let age = yearFuture - yearOfBirth;
+const yearOfBirth = 1980;
+const yearFuture = 2035;
+const age = yearFuture - yearOfBirth;
 
 console.log('You will be ' + age + ' years old in ' + yearFuture);
