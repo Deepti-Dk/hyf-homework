@@ -1,27 +1,33 @@
-let peterHouseVolume = 8 * 10 * 10; //8m wide, 10m deep, 10m height
-let peterGardenSize = 100; // in m2
-let peterHousePrice = 2500000;
-
-let juliaHouseVolume = 5 * 11 * 8; // 5m wide, 11m deep, 8m height
-let juliaGardenSize = 70; // in m2
-let juliaHousePrice = 1000000;
-
 // formula to be used: housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 
-let calcPeterHousePrice, calcJuliaHousePrice;
+// Calculations for Peters House
+const width1 = 8;
+const deep1 = 10;
+const height1 = 10;
+const peterHouseVolume = width1 * deep1 * height1; //in meters
+const peterGardenSize = 100; // in m2
+const peterHousePrice = 2500000;
 
-calcPeterHousePrice = peterHouseVolume * 2.5 * 1000 + peterGardenSize * 300;
-console.log(
-  'Peter paid ' +
-    peterHousePrice +
-    ' and the calculated house price is: ' +
-    calcPeterHousePrice
-);
+const calcPeterHousePrice =
+  peterHouseVolume * 2.5 * 1000 + peterGardenSize * 300;
+if (calcPeterHousePrice > peterHousePrice) {
+  console.log('Peter paid more than the estimated price for the house.');
+} else {
+  console.log('Peter paid less than the estimated price for the house.');
+}
 
-calcJuliaHousePrice = juliaHouseVolume * 2.5 * 1000 + juliaGardenSize * 300;
-console.log(
-  'Julia paid ' +
-    juliaHousePrice +
-    ' and the calculated house price is: ' +
-    calcJuliaHousePrice
-);
+//Calculations for Julias House
+const width2 = 5;
+const deep2 = 11;
+const height2 = 8;
+const juliaHouseVolume = width2 * deep2 * height2; // in meters
+const juliaGardenSize = 70; // in m2
+const juliaHousePrice = 1000000;
+
+const calcJuliaHousePrice =
+  juliaHouseVolume * 2.5 * 1000 + juliaGardenSize * 300;
+if (calcJuliaHousePrice > juliaHousePrice) {
+  console.log('Julia paid more than the estimated price for the house.');
+} else {
+  console.log('Julia paid less than the estimated price for the house.');
+}
