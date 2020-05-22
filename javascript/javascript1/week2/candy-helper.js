@@ -1,7 +1,7 @@
 //global variable declaration
 const boughtCandyPrices = [];
-let amountToSpend = Math.random() * 100;
-//just checking how much amout available for candy shopping
+const amountToSpend = Math.random() * 100;
+
 console.log('Total money available for candies: ' + amountToSpend);
 //calculating candy prices and storing these in array
 function addCandy(candyType, weight) {
@@ -22,11 +22,9 @@ addCandy('Sweet', 5);
 addCandy('Sweet', 15);
 addCandy('Chocolate', 5);
 addCandy('Toffee', 5);
-//addCandy('misc', 20); //to test for any other candy type input
-//console.log('Price List: ' + boughtCandyPrices); // to test if prices get calculated correct
 
 //function to calculate the total of candy price array and to return 'true' or 'false' accordingly
-function canBuyMoreCandy() {
+function canBuyMoreCandy(candyType) {
   //function scope(local) variable declaration
   let count = 0;
   let totalPrice = 0;
@@ -38,15 +36,12 @@ function canBuyMoreCandy() {
   //displaying total amout spent
   console.log('Candy shopping done for: ' + totalPrice);
   //comparing total amout spent to amout available
-  if (totalPrice < amountToSpend) {
-    return true;
-  } else {
-    return false;
-  }
+  return totalPrice < amountToSpend;
 }
 //displaying further shopping option based on 'true' or 'false' return from canBuyMoreCandy()
-if (canBuyMoreCandy()) {
+if (canBuyMoreCandy('Sweet')) {
   console.log('You can buy more, so please do!');
+  addCandy('Sweet', 10);
 } else {
   console.log('Enough candy for you!');
 }
