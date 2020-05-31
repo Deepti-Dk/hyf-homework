@@ -19,21 +19,19 @@ const seriesDurations = [
   },
 ];
 
-function logOutSeriesText(data) {
-  let daysToYear,
-    hoursToYear,
-    minutesToYear,
-    seriesTotal,
-    total = 0;
-  for (let i = 0; i < data.length; i++) {
-    daysToYear = (data[i].days / (365 * 80)) * 100; //days %age in 80years
-    hoursToYear = (data[i].hours / (365 * 80 * 24)) * 100; //hours %age in 80years
-    minutesToYear = (data[i].minutes / (365 * 80 * 24 * 60)) * 100; //minutes %age in 80years
-    seriesTotal = daysToYear + hoursToYear + minutesToYear; //total %age for one series in 80years
+function logOutSeriesText(seriesDurations) {
+  const lifespan = 80 * 365 * 24 * 60; //minutes in 80 years
+  let total = 0;
+  for (let i = 0; i < seriesDurations.length; i++) {
+    const series = seriesDurations[i];
+    const daysToYear = ((series.days * 24 * 60) / lifespan) * 100; //days %age in 80years
+    const hoursToYear = ((series.hours * 60) / lifespan) * 100; //hours %age in 80years
+    const minutesToYear = (series.minutes / lifespan) * 100; //minutes %age in 80years
+    const seriesTotal = daysToYear + hoursToYear + minutesToYear; //total %age for one series in 80years
     console.log(
       'The ' +
         '"' +
-        data[i].title +
+        series.title +
         '"' +
         ' took ' +
         seriesTotal.toFixed(3) +
@@ -48,4 +46,4 @@ function logOutSeriesText(data) {
   );
 }
 
-logOutSeriesText(seriesDurations); //calling function
+logOutSeriesText(seriesDurations);
