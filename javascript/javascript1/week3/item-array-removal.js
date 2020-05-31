@@ -11,7 +11,7 @@ const names = [
   'Tala',
 ];
 const nameToRemove = 'Ahmad';
-var index = names.indexOf(nameToRemove);
-names.splice(index, 1); //using splice() to remove '1' element at 'index'---googled this func
+const index = names.indexOf(nameToRemove);
+names.splice(index, 1); //using splice() to remove '1' element at 'index'---googled this function
 
-console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala']
+console.log(names);
