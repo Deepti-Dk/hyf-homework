@@ -1,6 +1,6 @@
-//I have created and called all functions according to the homework sequence
+//I have created and called all functions according to the homework sequence and implemented optional exercises criterias, as well...commented to differentiate
 
-var activities = [
+const activities = [
   {
     date: '23/7-2018',
     activity: 'Youtube',
@@ -11,32 +11,35 @@ const date = new Date();
 const today = date.toLocaleDateString();
 
 function addActivity(website, period) {
-  //function to append activities array
+  //modified this function as per the optional exercise criteria as that states to auto pick system date
   activities.push({ date: today, activity: website, duration: period });
 }
 
 addActivity('Whatsapp', 30);
 addActivity('Facebook', 60);
 addActivity('Instagram', 40);
-console.log(activities); //displaying activities array
+console.log(activities);
 
-function showStatus(array) {
-  //function to calculate and display of smartphone usageS
+function showStatus(activities) {
+  if (activities.length === 0) {
+    console.log('Add some activities before calling showStatus');
+    return;
+  }
   let time = 0;
   let count = 0;
   let todayDuration = 0;
   const limit = 120;
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < activities.length; i++) {
     // implementing the optional exercise criteria
-    time += array[i].duration;
-    if (array[i].date == today) {
+    time += activities[i].duration;
+    if (activities[i].date === today) {
       count++; //calculating number of activities for today
-      todayDuration += array[i].duration; //calculating time spent, today
+      todayDuration += activities[i].duration; //calculating time spent, today
     }
   }
   console.log(
     '\n You have added total of ' +
-      array.length +
+      activities.length +
       ' activities. These amount to the total of ' +
       time +
       ' minutes of usage'
@@ -57,18 +60,18 @@ function showStatus(array) {
     );
   }
 }
-showStatus(activities); // calling showStatus()
+showStatus(activities);
 
 function activity(arr) {
   // implementing the optional exercise criteria
   let max = 0;
-  let act;
+  let activity;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].date === today && arr[i].duration > max) {
       max = arr[i].duration;
-      act = arr[i].activity;
+      activity = arr[i].activity;
     }
   }
-  console.log('\n You spent the maximum time on ' + act + ' today!!!');
+  console.log('\n You spent the maximum time on ' + activity + ' today!!!');
 }
-activity(activities); //calling function to check the activity with most time spent
+activity(activities);
