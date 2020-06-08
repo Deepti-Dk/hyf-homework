@@ -3,9 +3,14 @@
 function getReply(question) {
   switch (question) {
     case 'Hello my name is Deepti':
-      return 'Nice to meet you Deepti';
+      const nameArray = question.split(' ');
+      if (question.startsWith('Hello my name is')) {
+        const name = nameArray[nameArray.length - 1];
+        return `Nice to meet you ${name}`;
+      }
     case 'What is my name?':
       return 'Your name is Deepti';
+
     case 'Add fishing to my todo':
       return 'Fishing added to your todo';
     case 'Add singing in the shower to my todo':
@@ -15,13 +20,13 @@ function getReply(question) {
     case 'What is on my todo?':
       return 'Fishing and singing in the shower';
     case 'What day is it today?':
-      return (
-        new Date().getDate() +
-        '. of ' +
-        new Date().toLocaleString('default', { month: 'long' }) +
-        ' ' +
-        new Date().getFullYear()
-      );
+      if (question === 'What day is it today?') {
+        return new Date().toLocaleDateString('en-US', {
+          day: 'numeric',
+          year: 'numeric',
+          month: 'long',
+        });
+      }
     case 'What is 3+3':
       return 3 + 3;
     case 'What is 6-3':
