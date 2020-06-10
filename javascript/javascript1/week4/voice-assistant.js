@@ -1,60 +1,68 @@
 //SANDBOX URL: https://codesandbox.io/s/talk-to-your-computer-ph2ql?file=/src/index.js
 
-function getReply(question) {
-  switch (question) {
-    case 'Hello my name is Deepti':
-      const nameArray = question.split(' ');
-      if (question.startsWith('Hello my name is')) {
-        const name = nameArray[nameArray.length - 1];
-        return `Nice to meet you ${name}`;
-      }
-    case 'What is my name?':
-      return 'Your name is Deepti';
+let nameArray = [];
+let activity = [];
+let temp;
+let i = 0;
 
-    case 'Add fishing to my todo':
-      return 'Fishing added to your todo';
-    case 'Add singing in the shower to my todo':
-      return 'Singing in the shower added to your todo';
-    case 'Remove fishing from my todo':
-      return 'Removed fishing from your todo';
-    case 'What is on my todo?':
-      return 'Fishing and singing in the shower';
-    case 'What day is it today?':
-      if (question === 'What day is it today?') {
-        return new Date().toLocaleDateString('en-US', {
-          day: 'numeric',
-          year: 'numeric',
-          month: 'long',
-        });
-      }
-    case 'What is 3+3':
-      return 3 + 3;
-    case 'What is 6-3':
-      return 6 - 3;
-    case 'What is 4*12':
-      return 4 * 12;
-    case 'What is 9/3':
-      return 9 / 3;
-    case 'Set a timer for 4 minutes':
-      setTimeout(function () {
-        //I dont know why 'undefined is getting displayed...i tried debug,as well...need your help with this...thanks!
-        console.log('Timer done');
-      }, 4000);
-      break;
-    default:
-      return 'Have a nice day!';
+function getReply(question) {
+  if (question.startsWith('Hello my name is')) {
+    nameArray = question.split(' ');
+    temp = nameArray[nameArray.length - 1];
+    return `Hello my name is ${temp}`;
+  } else if (question.startsWith('What is my name?')) {
+    return `Nice to meet you ${temp}`;
+  } else if (question.startsWith('Add')) {
+    nameArray = question.split(' ');
+    temp = nameArray[1];
+    activity.push(temp);
+    return temp + ' added to your todo';
+  } else if (question.startsWith('Remove')) {
+    temp = activity.pop();
+    return 'Removed ' + temp + ' from your todo list';
+  } else if (question.startsWith('What is on my todo')) {
+    return activity;
+  } else if (question === 'What day is it today?') {
+    return new Date().toLocaleDateString('en-US', {
+      day: 'numeric',
+      year: 'numeric',
+      month: 'long',
+    });
+  } else if (question.search('\\+') != -1) {
+    nameArray = question.split(' ');
+    temp = parseInt(nameArray[2]) + parseInt(nameArray[4]);
+    return temp;
+  } else if (question.search('\\-') != -1) {
+    nameArray = question.split(' ');
+    temp = parseInt(nameArray[2]) - parseInt(nameArray[4]);
+    return temp;
+  } else if (question.search('\\*') != -1) {
+    nameArray = question.split(' ');
+    temp = parseInt(nameArray[2]) * parseInt(nameArray[4]);
+    return temp;
+  } else if (question.search('\\/') != -1) {
+    nameArray = question.split(' ');
+    temp = parseInt(nameArray[2]) / parseInt(nameArray[4]);
+    return temp;
+  } else if (question.search('timer')) {
+    nameArray = question.split(' ');
+    temp = parseInt(nameArray[4]);
+    console.log(temp);
+    setTimeout(function () {
+      console.log('Timer done');
+    }, temp * 1000);
   }
 }
 
-console.log(getReply('Hello my name is Deepti'));
+console.log(getReply('Hello my name is John'));
 console.log(getReply('What is my name?'));
 console.log(getReply('Add fishing to my todo'));
 console.log(getReply('Add singing in the shower to my todo'));
 console.log(getReply('Remove fishing from my todo'));
 console.log(getReply('What is on my todo?'));
 console.log(getReply('What day is it today?'));
-console.log(getReply('What is 3+3'));
-console.log(getReply('What is 6-3'));
-console.log(getReply('What is 4*12'));
-console.log(getReply('What is 9/3'));
+console.log(getReply('What is 3 + 3'));
+console.log(getReply('What is 6 - 3'));
+console.log(getReply('What is 4 * 12'));
+console.log(getReply('What is 9 / 3'));
 console.log(getReply('Set a timer for 4 minutes'));
