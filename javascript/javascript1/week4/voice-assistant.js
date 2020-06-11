@@ -1,59 +1,65 @@
 //SANDBOX URL: https://codesandbox.io/s/talk-to-your-computer-ph2ql?file=/src/index.js
 
-let nameArray = [];
-let activity = [];
-let temp;
+let todos = [];
+let nameVar; //naming vaiable <name> is giving some weird error in my code
 let i = 0;
 
 function getReply(question) {
+  const questionWords = question.split(' ');
   if (question.startsWith('Hello my name is')) {
-    nameArray = question.split(' ');
-    temp = nameArray[nameArray.length - 1];
-    return `Hello my name is ${temp}`;
-  } else if (question.startsWith('What is my name?')) {
-    return `Nice to meet you ${temp}`;
-  } else if (question.startsWith('Add')) {
-    nameArray = question.split(' ');
-    temp = nameArray[1];
-    activity.push(temp);
-    return temp + ' added to your todo';
-  } else if (question.startsWith('Remove')) {
-    temp = activity.pop();
-    return 'Removed ' + temp + ' from your todo list';
-  } else if (question.startsWith('What is on my todo')) {
-    return activity;
+    nameVar = questionWords[questionWords.length - 1];
+    return `Hello my name is ${nameVar}`;
+  } else if (question === 'What is my name?') {
+    return `Nice to meet you ${nameVar}`;
+  } else if (question.startsWith('Add') && question.endsWith('to my todo')) {
+    const todo = question.replace('Add', '').replace(' to my todo', '');
+    todos.push(todo);
+    return `${todo} added to your todo`;
+  } else if (
+    question.startsWith('Remove') &&
+    question.endsWith('from my todo')
+  ) {
+    const todo = question.replace('Remove', '').replace(' from my todo', '');
+    const todoIndex = todos.indexOf(todo);
+    todos.splice(todoIndex, 1);
+    return `${todo} removed from your todo`;
+  } else if (question === 'What is on my todo?') {
+    return `You have ${todos.length} todos - ${todos}`;
   } else if (question === 'What day is it today?') {
     return new Date().toLocaleDateString('en-US', {
       day: 'numeric',
       year: 'numeric',
       month: 'long',
     });
-  } else if (question.search('\\+') != -1) {
-    nameArray = question.split(' ');
-    temp = parseInt(nameArray[2]) + parseInt(nameArray[4]);
-    return temp;
-  } else if (question.search('\\-') != -1) {
-    nameArray = question.split(' ');
-    temp = parseInt(nameArray[2]) - parseInt(nameArray[4]);
-    return temp;
-  } else if (question.search('\\*') != -1) {
-    nameArray = question.split(' ');
-    temp = parseInt(nameArray[2]) * parseInt(nameArray[4]);
-    return temp;
-  } else if (question.search('\\/') != -1) {
-    nameArray = question.split(' ');
-    temp = parseInt(nameArray[2]) / parseInt(nameArray[4]);
-    return temp;
+  } else if (
+    question.search('\\+') != -1 ||
+    question.search('\\-') != -1 ||
+    question.search('\\*') != -1 ||
+    question.search('\\/') != -1
+  ) {
+    const number1 = parseInt(questionWords[2]);
+    const number2 = parseInt(questionWords[4]);
+    const operation = questionWords[3];
+    if (number1 && number2) {
+      switch (operation) {
+        case '+':
+          return number1 + number2;
+        case '-':
+          return number1 - number2;
+        case '*':
+          return number1 * number2;
+        case '/':
+          return number1 / number2;
+      }
+    }
   } else if (question.search('timer')) {
-    nameArray = question.split(' ');
-    temp = parseInt(nameArray[4]);
-    console.log(temp);
+    nameVar = parseInt(questionWords[4]);
+    console.log(nameVar);
     setTimeout(function () {
       console.log('Timer done');
-    }, temp * 1000);
+    }, nameVar * 1000);
   }
 }
-
 console.log(getReply('Hello my name is John'));
 console.log(getReply('What is my name?'));
 console.log(getReply('Add fishing to my todo'));
