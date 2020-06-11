@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/spirit-animal-name/spirit-animal-name-generator.css"
+    />
+    <title>The Spirit Animal Name Generator</title>
+  </head>
+  <body>
+    <form id="form">
+      <h1>The Spirit Animal Name Generator</h1>
+      <label for="name" id="nameLabel">Enter your Name:</label>
+      <input type="text" id="input" name="name" />
+      <button id="submit" type="button">
+        Click here!!!
+      </button>
+      <button id="clear" type="button">
+        Clear all!
+      </button>
+
+      <ul>
+        Select an option to display your spirit animal:
+
+        <li>
+          <input
+            type="radio"
+            id="submit"
+            name="option"
+            value="submit"
+            checked
+          />
+          <label id="submit-lbl" for="submit">Click on the button!</label>
+        </li>
+
+        <li>
+          <input type="radio" id="hover" name="option" value="hover" />
+          <label id="hover-lbl" for="hover">Hover over Input</label>
+        </li>
+
+        <li>
+          <input type="radio" id="inputt" name="option" value="inputt" />
+          <label id="inputt-lbl" for="inputt">Input Text</label>
+        </li>
+      </ul>
+      <br />
+      <label id="output"> </label>
+    </form>
+    <script src="/spirit-animal-name/spirit-animal-name-generator.js"></script>
+  </body>
+</html>
