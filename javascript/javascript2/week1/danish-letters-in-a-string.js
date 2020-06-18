@@ -3,31 +3,47 @@ const str1 = danishString1.toString(); //creating alphabet array from string arr
 
 const danishString2 = ['Jeg har en blå bil'];
 const str2 = danishString2.toString(); //creating alphabet array from string array
+let danishLetters = { æ: 0, ø: 0, å: 0 };
 
-function danishLetters(array) {
-  let alpha1 = 0; //to count æ
-  let alpha2 = 0; //to count ø
-  let alpha3 = 0; //to count å
+function danishLettersCount(array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'æ') {
-      alpha1++;
+      danishLetters.æ++;
     } else if (array[i] === 'ø') {
-      alpha2++;
+      danishLetters.ø++;
     } else if (array[i] === 'å') {
-      alpha3++;
+      danishLetters.å++;
     }
   }
   console.log(array);
-  console.log(
-    'total: ' +
-      (alpha1 + alpha2 + alpha3) +
-      ', æ: ' +
-      alpha1 +
-      ' , ø: ' +
-      alpha2 +
-      ' , å: ' +
-      alpha3
-  );
+  if (danishLetters.æ === 0) {
+    console.log(
+      'total: ' +
+        (danishLetters.ø + danishLetters.å) +
+        ' , ø: ' +
+        danishLetters.ø +
+        ' , å: ' +
+        danishLetters.å
+    );
+  } else if (danishLetters.ø === 0) {
+    console.log(
+      'total: ' +
+        (danishLetters.æ + danishLetters.å) +
+        ' , ø: ' +
+        danishLetters.æ +
+        ' , å: ' +
+        danishLetters.å
+    );
+  } else {
+    console.log(
+      'total: ' +
+        (danishLetters.æ + danishLetters.ø) +
+        ' , ø: ' +
+        danishLetters.æ +
+        ' , å: ' +
+        danishLetters.ø
+    );
+  }
 } // returns {total: 4, æ: 1, ø: 2, å: 1}
-danishLetters(str1);
-danishLetters(str2);
+danishLettersCount(str1);
+danishLettersCount(str2);
