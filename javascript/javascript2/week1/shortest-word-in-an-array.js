@@ -1,14 +1,14 @@
 const danishWords = ['bil', 'plante', 'kaffe', 'bog', 'ø', 'planetarium'];
 
-function shortestWord(array) {
+function shortestWord(words) {
   let shortest = '';
 
-  for (let element of array) {
+  for (let word of words) {
     if (
-      typeof element === 'string' &&
-      (shortest === '' || element.length < shortest.length)
+      typeof word === 'string' &&
+      (shortest === '' || word.length < shortest.length)
     ) {
-      shortest = element;
+      shortest = word;
     }
   }
   return shortest;
