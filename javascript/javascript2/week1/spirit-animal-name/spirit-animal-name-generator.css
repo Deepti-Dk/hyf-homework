@@ -18,7 +18,37 @@ h1 {
   color: lightblue;
   text-align: center;
 }
-#nameLabel {
+#clear,
+#submit,
+input,
+label {
+  font-size: 20px;
+  font-weight: bold;
+  list-style-type: none !important;
+}
+h2 {
+  text-align: left;
+}
+#output {
+  margin: 0;
+  padding: 30px;
+  display: block;
+  align-self: center;
+  background-color: chocolate;
+  color: lightblue;
+  width: 92%;
+  height: 20%;
+  font-size: 35px;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+}
+#input-text {
+  margin-left: 2px;
+  font-size: 25px;
+  width: 30%;
+}
+/*#nameLabel {
   font-size: 25px;
   font-weight: bold;
   padding: 2%;
@@ -34,30 +64,4 @@ ul {
   font-size: 20px;
   font-weight: bold;
   list-style-type: none;
-}
-#clear,
-#submit,
-#submit-lbl,
-#hover-lbl,
-#inputt-lbl {
-  font-size: 20px;
-  font-weight: bold;
-  list-style-type: none !important;
-}
-#input {
-  font-size: 25px;
-  width: 30%;
-}
-#output {
-  margin: 0;
-  padding: 0;
-  display: block;
-  float: right;
-  background-color: chocolate;
-  color: lightblue;
-  width: 100%;
-  font-size: 35px;
-  font-weight: bold;
-  border: none;
-  text-align: center;
-}
+/* } */

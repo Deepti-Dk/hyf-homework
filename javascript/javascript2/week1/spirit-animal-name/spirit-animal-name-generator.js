@@ -1,5 +1,5 @@
 console.log('Hello! Want to know your animal spirit name!');
-const array = [
+const spiritAnimals = [
   'The Playfull Coyote',
   'The Curious Cat',
   'The Transformed Butterfly',
@@ -12,29 +12,90 @@ const array = [
   'The Powerful Lion',
 ];
 
-const submit = document.querySelector('#submit');
-const clear = document.querySelector('#clear');
-const input = document.querySelector('#input');
-const output = document.querySelector('#output');
+const submit = document.getElementById('submit');
+let input = document.getElementById('input-text');
+const clear = document.getElementById('clear');
+const output = document.getElementById('output');
+//const form = document.getElementById('spirit-form');
+const radio = document.getElementById('event-type');
 
-const submitt = document.querySelector('#submit-lbl');
-const hover = document.querySelector('#hover-lbl');
-const inputt = document.querySelector('#inputt-lbl');
-
-//Tried to implement radio button options(optional exercise), need help as could find help with google, as well. So, for now, just input,output and clear options are working
-if (submitt) {
-  submit.addEventListener('click', function onclick() {
-    output.textContent = array[Math.floor(Math.random() * 10)];
-  });
-} else if (hover) {
-  input.addEventListener('mouseover', function onhover() {
-    output.textContent = array[Math.floor(Math.random() * 10)];
-  });
-} else if (inputt) {
-  output.textContent = array[Math.floor(Math.random() * 10)];
+console.log(input);
+function getRandomNumber() {
+  return Math.floor(Math.random() * spiritAnimals.length);
 }
 
+function displaySpiritName() {
+  const spiritAnimal = spiritAnimals[getRandomNumber()];
+
+  console.log('in display-spirit if');
+
+  //form.appendChild(output).innerHTML = userTemplateString;
+  output.innerHTML = spiritAnimal;
+  /* } else {
+    console.log('in display-spirit else');
+    output.innerHTML = spiritAnimal;
+  }
+  /*if (!input) {
+    console.log('there is not input here');
+  }*/
+}
+
+let eventType;
+const radios = document.getElementsByName('event-type');
+console.log('radios' + radios);
+
+function trackRadioClick(event) {
+  //const userInput = input;
+  const spiritAnimal = spiritAnimals[getRandomNumber()];
+  //eventType = event.target.value;
+  /*console.log('in trackradio: event type is: ' + eventType);
+  if (eventType === 'click') {
+    console.log('in click');
+    submit.addEventListener('click', () => {*/
+  console.log(event);
+  //const userTemplateString = `${input} - ${spiritAnimal}`;
+  if (event === 'click') {
+    console.log('in click');
+    submit.addEventListener('click', displaySpiritName);
+  }
+  //output.innerText = input.value + ' ' + spiritAnimal;
+  else if (event == 'mouseover') {
+    console.log('in mouseever');
+    submit.addEventListener('onmouseover', displaySpiritName);
+  }
+  //output.innerHTML= /* });
+  //submit.removeEventListener('mouseover', displaySpiritName); //input.removeEventListener('onBlur', displaySpiritName);
+  else if (event === 'change') {
+    console.log('in change');
+    input.addEventListener('onchange', displaySpiritName);
+  }
+  //button.removeEventListener('click', displaySpiritName);
+  //input.removeEventListener('onBlur', displaySpiritName);
+  /* } else if (radio.id === 'change') {
+    console.log(eventType);
+    console.log('in change');
+    submit.addEventListener('onChange', displaySpiritName);
+    //button.removeEventListener('click', displaySpiritName);
+    //button.removeEventListener('mouseover', displaySpiritName);
+  }*/
+}
+
+radios.forEach((radio) => {
+  console.log('in radios.foreach:   ' + radio.id);
+  trackRadioClick(radio.id);
+});
+
+/*
+//button.addEventListener('click', myButtonFunction);
+function myButtonFunction() {
+  const spiritAnimal = spiritAnimals[getRandomNumber()];
+  console.log('in button click');
+  //  const userTemplateString = `${userInput} - ${spiritAnimal}`;
+  output.textContent = spiritAnimal;
+}*/
+//button.addEventListener(eventType, displaySpiritName(eventType));
 clear.addEventListener('click', function () {
+  console.log('in clear');
   input.value = '';
   output.textContent = '';
 });
