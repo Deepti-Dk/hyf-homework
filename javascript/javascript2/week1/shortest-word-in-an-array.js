@@ -7,9 +7,8 @@ function shortestWord(words) {
     if (
       typeof word === 'string' &&
       (shortest === '' || word.length < shortest.length)
-    ) {
+    )
       shortest = word;
-    }
   }
   return shortest;
 }
