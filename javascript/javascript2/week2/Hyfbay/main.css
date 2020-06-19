@@ -1,0 +1,32 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: lightgray;
+  color: darkblue;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2 {
+  margin: 0;
+}
+h1 {
+  color: whitesmoke;
+  background-color: darkblue;
+}
+#input-label {
+  font-weight: bold;
+  font-size: 15px;
+}
+#input-text {
+  border: 1px solid darkblue;
+  font-size: 15px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
