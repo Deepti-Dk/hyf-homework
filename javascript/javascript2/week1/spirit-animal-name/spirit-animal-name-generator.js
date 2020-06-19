@@ -1,4 +1,5 @@
 console.log('Hello! Want to know your animal spirit name!');
+
 const spiritAnimals = [
   'The Playfull Coyote',
   'The Curious Cat',
