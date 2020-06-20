@@ -11,14 +11,19 @@
   <main>
     <h1>The Product List</h1>
     <hr />
-    <label for="input-text" id="input-label"
-      >Quick Search
-      <input type="text" id="input-text" placeholder="Search for a product"
-    /></label>
-    <hr />
+    <label for="input-text" id="input-label"> Quick Search</label>
 
-    <ul></ul>
+    <input
+      type="text"
+      id="input-text"
+      oninput="quickSearch()"
+      placeholder="Search for a product"
+      value=""
+    />
   </main>
+  <hr />
+  <hr />
+  <ul></ul>
   <script src="hyfBayHelpers.js"></script>
   <script src="main.js"></script>
 </body>
