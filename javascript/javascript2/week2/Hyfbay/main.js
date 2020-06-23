@@ -1,99 +1,98 @@
 console.log('Script loaded');
 const products = getAvailableProducts();
 
-/**********************JS2 - W1 HOMEWORK******************* */
+/**********************JS2 - W1 HOMEWORK***WITH PRODUCTS AS A PARAMETER **************** */
 /*function renderProducts(products) {
+  console.log(products);
   const ul = document.querySelector('ul');
   products.forEach((product) => {
     const li = document.createElement('li');
     li.innerHTML = `<h2>${product.name}</h2><span>price: ${product.price}</span><br><span>Rating: ${product.rating}</span>`;
     ul.appendChild(li);
   });
-}
+}*/
 
 /************************* JS - W2 HOMEWORK *************************** */
-const source = document.getElementById('input-text');
+const searchBar = document.getElementById('input-text');
+const priceBar = document.getElementById('input-price');
+
 const ul = document.querySelector('ul');
+let searchResult = [];
 
-function quickSearch() {
-  const filterSearchProduct = document.getElementById('input-text').value;
-
-  products.filter((product) => {
-    if (
-      product.name.includes(filterSearchProduct.toLowerCase()) &&
-      filterSearchProduct != ''
-    ) {
-      const li = document.createElement('li');
-      li.innerHTML = `<h2>${product.name}</h2><span>price: ${product.price}</span><br><span>Rating: ${product.rating}</span>`;
-      ul.appendChild(li);
-    }
+const renderProducts = (product) => {
+  const row = product.map((value) => {
+    return `
+          <tr class="character">
+              <h2>${value.name}</h2><span>Price: ${value.price}</span><br>
+              <span>Rating: ${value.rating}</span>
+          </tr>
+      `;
   });
-}
-
-/****************************************************************** 
-TRIAL AND ERROR CODE BELOW...!*************************************
-*******************************************************************/
-/*function quickSearch() {
-  const words = source.value.split(' ');
-  console.log(words);
-  //const wordsLowerCase = words.toLowerCase();
-
-  const matchingProducts = products.filter((product) => {
-    if (product.name)
-    //console.log(product + '     in filter');
-    products.forEach((product) => {
-      product.name = product.name.toLowerCase();
-      // console.log(product.name + '            in foreach');
-    });
-    product.name.includes(words);
+  ul.innerHTML = row;
+};
+/********************SEARCH BARS********************** */
+searchBar.addEventListener('keyup', (e) => {
+  const searchWord = e.target.value.toLowerCase();
+  searchResult = products.filter((product) => {
+    return product.name.toLowerCase().includes(searchWord);
   });
+  renderProducts(searchResult);
+});
 
-  console.log(matchingProducts);
-  matchingProducts.forEach((product) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<h2>${product.name}</h2><span>price: ${product.price}</span><br><span>Rating: ${product.rating}</span>`;
-    ul.appendChild(li);
+priceBar.addEventListener('keyup', (e) => {
+  const searchPrice = e.target.value;
+  const priceResult = products.filter((product) => {
+    return product.price < searchPrice;
   });
-}
+  renderProducts(priceResult);
+});
 
-/*document.getElementById(
-        'show-product'
-      ).innerHTML = `<h2>${product.name}</h2><span>price: ${product.price}</span><br><span>Rating: ${product.rating}</span>`;*/
+/********************SORTING *******************
+ * ***************PRICE ***********************
+ **********************************************/
+let increase, decrease;
 
-//source.addEventListener('input', wordSearch);
-
-/*function wordSearch(e) {
-  console.log(e.target.value);
-  filterProduct = products.filter((product) => {
-    return (
-      product.name.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0
-    );
-  });
-  console.log(filterProduct);
-  filterProduct.forEach((product) => {
-    console.log(product);
-    const li = document.createElement('li');
-    // li.innerHTML = product.name;
-    li.innerHTML = `<h2>${product.name}</h2><span>price: ${product.price}</span><br><span>Rating: ${product.rating}</span>`;
-    ul.appendChild(li);
-  });
-}
-let filterProduct = [];
-function quickSearch(e) {
-  filterProduct = products.find(
-    (product) =>
-      product.name.toLowerCase().includes(e.target.value.toLowerCase()) >= 0
+const minPrice = document.getElementById('price-increase');
+minPrice.addEventListener('click', () => {
+  const increase = products.sort(
+    (a, b) => parseFloat(a.price) - parseFloat(b.price)
   );
+  renderProducts(increase);
+});
 
-  //if (e.target.value) {
-  const li = document.createElement('li');
-  //if (product.name === word)
-  li.innerHTML = `<h2>${filterProduct.name}</h2><span>price: ${filterProduct.price}</span><br><span>Rating: ${filterProduct.rating}</span>`;
-  ul.appendChild(li);
-  /* } else {
-    ul.innerHTML = ' ';
-  }
+const maxPrice = document.getElementById('price-decrease');
+maxPrice.addEventListener('click', () => {
+  decrease = products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+  renderProducts(decrease);
+});
 
-  //console.log(filterProduct)
-}
-source.addEventListener('keyup', quickSearch);*/
+/********************SORTING *******************
+ * ***************RATING ***********************
+ **********************************************/
+
+const minRating = document.getElementById('rating-increase');
+minRating.addEventListener('click', () => {
+  increase = products.sort((a, b) => a.rating - b.rating);
+  renderProducts(increase);
+});
+const maxRating = document.getElementById('rating-decrease');
+maxRating.addEventListener('click', () => {
+  decrease = products.sort((a, b) => b.rating - a.rating);
+  renderProducts(decrease);
+});
+
+/********************SORTING *******************
+ * ***************PRODUCT NAME ***********************
+ **********************************************/
+
+const azName = document.getElementById('name-ascending');
+azName.addEventListener('click', () => {
+  increase = products.sort((a, b) => a.name.localeCompare(b.name));
+  renderProducts(increase);
+});
+const zaName = document.getElementById('name-descending');
+zaName.addEventListener('click', () => {
+  decrease = products.sort((a, b) => b.name.localeCompare(a.name));
+  console.log(decrease);
+  renderProducts(decrease);
+});
