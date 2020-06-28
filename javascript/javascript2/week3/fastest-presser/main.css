@@ -25,11 +25,22 @@ h3 {
 }
 #time-input {
   padding: 5px;
+  font-size: 20px;
 }
 #time-input,
-#start-button,
-#stop-button {
+#start-button {
   border: 1px solid darkolivegreen;
+}
+#start-button:hover {
+  background-color: darkolivegreen;
+  color: white;
+}
+
+#start-button:active {
+  background-color: darkslategrey;
+  box-shadow: 0 5px #666;
+  color: white;
+  transform: translateY(4px);
 }
 .row {
   display: flex;
