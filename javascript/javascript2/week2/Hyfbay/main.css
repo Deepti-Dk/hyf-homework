@@ -1,0 +1,115 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: lightgray;
+  color: darkblue;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2 {
+  margin: 0;
+}
+h1 {
+  color: whitesmoke;
+  background-color: darkblue;
+  text-align: center;
+  font-weight: normal;
+}
+.input-label {
+  font-weight: bold;
+  font-size: 15px;
+}
+#sort-label {
+  float: left;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+#input-text,
+#input-price {
+  border: 1px solid darkblue;
+  font-size: 15px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: darkblue;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 14px 14px 6px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.dropbtn {
+  cursor: pointer;
+}
+/* Add a blue background color to navbar links on hover */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: darkblue;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: darkblue;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: gray;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
