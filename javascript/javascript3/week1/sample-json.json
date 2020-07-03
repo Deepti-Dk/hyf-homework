@@ -1,0 +1,12 @@
+{
+  "firstName": "deepti",
+  "lastName": "sharma",
+  "gender": "female",
+  "birthMonth": "march",
+  "address": {
+    "streetAddress": "123",
+    "city": "smørum",
+    "postalCode": "1234"
+  },
+  "phoneNumbers": [{ "type": "home", "number": "1234 5678" }]
+}
