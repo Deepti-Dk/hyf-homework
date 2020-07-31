@@ -1,0 +1,57 @@
+html,
+body {
+  margin: 0;
+  padding-top: 2%;
+  padding-left: 15%;
+  padding-right: 15%;
+  background-color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+  color: darkblue;
+}
+#mainHeading {
+  text-align: center;
+  font-weight: bolder;
+  margin: 0;
+  padding: 1%;
+  background-color: lightgray;
+  border: solid 5px darkblue;
+  color: darkblue;
+}
+#productName,
+#productPrice {
+  padding-right: 5%;
+  background-color: lightgray;
+}
+#productNameList,
+#productPriceList {
+  margin-top: 1%;
+  padding: 0;
+  font-weight: bold;
+  list-style: none;
+  display: grid;
+}
+
+#main {
+  display: flex;
+}
+li {
+  display: block;
+  font-weight: bold;
+}
+#username {
+  text-align: left;
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: larger;
+  background-color: darkblue;
+  color: white;
+  border: solid 2px darkgray;
+}
+#currencySection {
+  padding: 2%;
+  font-weight: bold;
+  background-color: darkblue;
+  color: white;
+  border: solid 2px darkgray;
+}
