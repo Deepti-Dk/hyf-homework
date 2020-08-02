@@ -13,8 +13,10 @@ SELECT * FROM task ORDER BY created DESC;
 -- Get the single most recently created task
 SELECT title,description,created FROM task ORDER BY created DESC LIMIT 1;
 -- Get the title and due date of all tasks where the title or description contains database
+-- SELECT title, due_date FROM task WHERE title 
+-- like '%' || 'database' || '%' OR description like '%' || 'database' || '%';
 SELECT title, due_date FROM task WHERE title 
-like '%' || 'database' || '%' OR description like '%' || 'database' || '%';
+like '%database%' OR description like '%database%';
 -- Get the title and status (as text) of all task
 SELECT * FROM task;
 SELECT * FROM status;
