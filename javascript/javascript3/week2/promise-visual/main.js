@@ -26,7 +26,7 @@ function translateOneByOne() {
     )
     .then(() => console.log('Green element has been moved'));
 }
-//translateOneByOne(); //--UN-COMMENT TO RUN
+//translateOneByOne();
 
 /**translateAllAtOnce - Should translate all the circles at the same time from their random start position to their target. Log out something after all elements have been moved
  */
@@ -56,4 +56,5 @@ function translateAllAtOnce() {
     console.log('All elements are moved');
   });
 }
-//translateAllAtOnce(); //--UN-COMMENT TO RUN
+translateAllAtOnce(); //--UN-COMMENT TO RUN
+//mostly used for get/send data to api //then-catch to wait for promise to either resolve or reject
