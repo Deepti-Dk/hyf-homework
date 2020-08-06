@@ -6,27 +6,25 @@ class Product {
   convertToCurrency(currency) {
     fetch('https://api.exchangeratesapi.io/latest?base=DKK')
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data.rates);
-        //let i = data.rates.`${currency}`;//tried lot of different options, can't pick respective rate for the currency, would continue research
+      .then((apiData) => {
+        //let apiRate = data.rates.`${currency}`;//tried lot of different options, can't pick respective rate for the currency, would continue research
         const currencySection = document.getElementById('currencySection');
-        let p;
         if (currency === 'USD') {
-          p = document.createElement('p');
+          let p = document.createElement('p');
           p.innerHTML = `Refrigerator price in USD: ${(
-            data.rates.USD * this.price
+            apiData.rates.USD * this.price
           ).toFixed(2)} USD`;
           currencySection.appendChild(p);
         } else if (currency === 'EUR') {
-          p = document.createElement('p');
+          let p = document.createElement('p');
           p.innerHTML = `Bosch Microwave price in EUR: ${(
-            data.rates.EUR * this.price
+            apiData.rates.EUR * this.price
           ).toFixed(2)} USD`;
           currencySection.appendChild(p);
         } else if (currency === 'INR') {
-          p = document.createElement('p');
+          let p = document.createElement('p');
           p.innerHTML = `Cooler price in INR: ${(
-            data.rates.INR * this.price
+            apiData.rates.INR * this.price
           ).toFixed(2)} USD`;
           currencySection.appendChild(p);
         }

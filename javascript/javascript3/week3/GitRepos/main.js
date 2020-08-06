@@ -9,22 +9,20 @@ let promises = gitRepos.map((url) => {
 });
 
 Promise.all(promises)
-  .then((d) => {
-    console.log(d);
+  .then((urlData) => {
     const body = document.querySelector('body');
-    d.forEach((element) => {
+    urlData.forEach((element) => {
       let ol = document.createElement('ol');
       body.appendChild(ol);
-      element.items.forEach((data) => {
+      element.items.forEach((repo) => {
         let li = document.createElement('li');
-        li.innerHTML = `<b>Repo name:</b>${data.name}<br><b> Repo URL:</b>${data.html_url} `;
+        li.innerHTML = `<b>Repo name:</b>${repo.name}<br><b> Repo URL:</b>${repo.html_url} `;
         ol.appendChild(li);
       });
-      let myhr = document.createElement('hr');
-      ol.appendChild(myhr);
+      let hr = document.createElement('hr');
+      ol.appendChild(hr);
     });
   })
-
-  .catch((e) => {
-    console.log('Whoops something went wrong!', e);
+  .catch((error) => {
+    console.log('Whoops something went wrong!', error);
   });
