@@ -28,3 +28,5 @@ SELECT COUNT(task.status_id) Count, MONTHNAME(task.created) Month_Name
 FROM task
 WHERE created IS NOT NULL 
 GROUP BY MONTH(task.created); 
+
+-- For the last question, I created DB, tables using Model and created ER diagram and forward engineer, uploading .pdf on Git
