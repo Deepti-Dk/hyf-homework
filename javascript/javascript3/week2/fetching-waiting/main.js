@@ -10,14 +10,19 @@ Which way do you prefer, the promise way or the async/await way? */
 fetch('http://api.open-notify.org/astros.json')
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    setTimeout(() => {
+      console.log(data);
+    }, 3000);
   })
   .catch(() => console.log('oops...something went wrong'));
 
 async function astroMovies() {
   const astronauts = await fetch('http://api.open-notify.org/astros.json');
+
   try {
-    console.log(astronauts.json());
+    setTimeout(() => {
+      console.log(astronauts.json());
+    }, 3000);
   } catch {
     console.log('There is a problem!');
   }
