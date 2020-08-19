@@ -10,23 +10,24 @@ CREATE TABLE Reservation(
     contact_email VARCHAR(255)
 );
 CREATE TABLE Meal(
-  id int,
-  title varchar(255),
-  description text,
-  location varchar(255),
-  `when` datetime,
-  max_reservations int,
-  price decimal,
-  created_date date
+  id INT,
+  title VARCHAR(255),
+  description TEXT,
+  location VARCHAR(255),
+  `when` DATETIME,
+  max_reservations INT,
+  price DECIMAL,
+  created_date DATE
 );
 CREATE TABLE Review(
-  id int,
-  title varchar(255),
-  description text,
-  meal_id int,
-  stars int,
-  created_date date
+  id INT,
+  title VARCHAR(255),
+  description TEXT,
+  meal_id INT,
+  stars INT,
+  created_date DATE
 );
+ALTER TABLE Meal ADD PRIMARY KEY(id);
 ALTER TABLE Reservation ADD FOREIGN KEY (meal_id) REFERENCES Meal (id);
 ALTER TABLE Review ADD FOREIGN KEY (meal_id) REFERENCES Meal (id);
 
@@ -102,21 +103,25 @@ SELECT COUNT(id) Number_of_Vegetarian_Meals FROM meal WHERE title LIKE '%vegetar
 -- Get the meals that have good reviews
 SELECT 
     meal.title Title,
-    review.stars Number_of_Stars
+    meal.description Description,
+    ROUND(AVG(review.stars), 2) Average_Number_of_Stars
 FROM
     meal
         JOIN
-    review ON (meal.id = review.meal_id)
+    review
 WHERE
-    review.stars > 2;
+    meal.id = review.meal_id
+GROUP BY meal.title;
+-- ORDER BY Average_Number_of_Stars;
 -- Get reservations for a specific meal sorted by created_date
 SELECT 
     meal.title Title,
-    COUNT(reservation.id) Number_of_Reservations, meal.created_date
+    COUNT(reservation.number_of_guests) Number_of_Guests, meal.created_date
 FROM
     meal
         JOIN
     reservation ON (meal.id = reservation.meal_id)
+    GROUP BY meal.created_date
 ORDER BY meal.created_date;
 -- Sort all meals by average number of stars in the reviews
 SELECT 
@@ -129,5 +134,5 @@ FROM
     review
 WHERE
     meal.id = review.meal_id
-GROUP BY meal.title
+GROUP BY meal.id
 ORDER BY Average_Number_of_Stars;
