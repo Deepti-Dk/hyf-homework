@@ -40,6 +40,12 @@ INSERT INTO meal VALUES(2, 'pasta with chicken', 'with tomato and barbecue sauce
 INSERT INTO meal VALUES(3, 'lasagne vegetarian', 'with mushroom sauce', 'Italy', now(), 7, 90.00, '2020-08-05');
 INSERT INTO meal VALUES(4, 'pizza barbecue', 'thin crust', 'Denmark', now(), 15, 110.00, '2020-08-01');
 INSERT INTO meal VALUES(5, 'lasagne', 'with tomato sauce', 'Italy', now(), 5, 80.00, '2020-07-31');
+INSERT INTO meal VALUES(6, 'pasta vegetarian', 'with tomato and basilikum sauce', 'Italy', now(), 5, 175.00, '2020-08-11');
+INSERT INTO meal VALUES(7, 'pasta with chicken', 'with tomato and barbecue sauce', 'Spain', now(), 10, 100.00, '2020-08-08');
+INSERT INTO meal VALUES(8, 'lasagne vegetarian', 'with mushroom sauce', 'Italy', now(), 7, 90.00, '2020-08-05');
+INSERT INTO meal VALUES(9, 'pizza barbecue', 'thin crust', 'Denmark', now(), 15, 110.00, '2020-08-01');
+INSERT INTO meal VALUES(10, 'lasagne', 'with tomato sauce', 'Italy', now(), 5, 80.00, '2020-07-31');
+
 -- Get a meal with any id, fx 1
 SELECT * FROM meal WHERE id=1;
 -- Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes
@@ -56,6 +62,12 @@ INSERT INTO reservation VALUES(2,3,1,current_date(),11111111,'Marie','marie_hey@
 INSERT INTO reservation VALUES(3,10,2,current_date(),33344455,'Martin','martin_007@hotmail.com');
 INSERT INTO reservation VALUES(4,5,2,current_date(),12312312,'Sonya','sonya_abc@hotmail.com');
 INSERT INTO reservation VALUES(5,7,3,current_date(),13131313,'Anna','anna_anna@hotmail.com');
+INSERT INTO reservation VALUES(6,5,1,current_date(),22223333,'Jaqueline','jaque_171@hotmail.com');
+INSERT INTO reservation VALUES(7,3,1,current_date(),11111111,'Marie','marie_hey@hotmail.com');
+INSERT INTO reservation VALUES(8,10,2,current_date(),33344455,'Martin','martin_007@hotmail.com');
+INSERT INTO reservation VALUES(9,5,2,current_date(),12312312,'Sonya','sonya_abc@hotmail.com');
+INSERT INTO reservation VALUES(10,7,3,current_date(),13131313,'Anna','anna_anna@hotmail.com');
+
 -- Get a reservation with any id, fx 1
 SELECT * FROM reservation WHERE id=1;
 -- Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
@@ -86,13 +98,15 @@ SELECT * FROM meal WHERE price<90;
 SELECT 
     meal.title Title,
     meal.max_reservations Maximum_Reservations,
-    reservation.number_of_guests Number_of_Guests_Reserved
+    meal.created_date,
+    SUM(reservation.number_of_guests) Number_of_Guests_Reserved
 FROM
     meal
         JOIN
     reservation ON (meal.id = reservation.meal_id)
-WHERE
-    reservation.number_of_guests < meal.max_reservations;
+GROUP BY meal.id , meal.created_date
+HAVING Number_of_Guests_Reserved < Maximum_Reservations;
+
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 SELECT * FROM meal WHERE title LIKE '%vegetar%';
 -- Get meals that has been created between two dates
@@ -103,16 +117,15 @@ SELECT COUNT(id) Number_of_Vegetarian_Meals FROM meal WHERE title LIKE '%vegetar
 -- Get the meals that have good reviews
 SELECT 
     meal.title Title,
-    meal.description Description,
+    meal.description Meal_Description,
     ROUND(AVG(review.stars), 2) Average_Number_of_Stars
 FROM
     meal
         JOIN
-    review
-WHERE
-    meal.id = review.meal_id
-GROUP BY meal.title;
--- ORDER BY Average_Number_of_Stars;
+    review ON (meal.id = review.meal_id)
+GROUP BY meal.title
+ORDER BY Average_Number_of_Stars DESC
+LIMIT 5;
 -- Get reservations for a specific meal sorted by created_date
 SELECT 
     meal.title Title,
