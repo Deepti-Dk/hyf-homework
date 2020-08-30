@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "pasta vegetarian",
+    "description": "with tomato and basilikum sauce",
+    "location": "Italy",
+    "when": "8/17/2020  20:11:01",
+    "maxReservations": 5,
+    "price": 175,
+    "createdDate": "8/11/2020"
+  },
+  {
+    "id": 2,
+    "title": "pasta with chicken",
+    "description": "with tomato and barbecue sauce",
+    "location": "Spain",
+    "when": "8/17/2020  20:11:01",
+    "maxReservations": 10,
+    "price": 100,
+    "createdDate": "8/8/2020"
+  },
+  {
+    "id": 3,
+    "title": "lasagne vegetarian",
+    "description": "with mushroom sauce",
+    "location": "Italy",
+    "when": "8/17/2020  20:11:01",
+    "maxReservations": 7,
+    "price": 90,
+    "createdDate": "8/5/2020"
+  }
+]
