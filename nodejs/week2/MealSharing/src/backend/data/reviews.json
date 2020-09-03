@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "numberOfStars": 3,
+    "content": "Best meal ever",
+    "mealId": 1,
+    "createdAt": 12345
+  },
+  {
+    "id": 2,
+    "numberOfStars": 2,
+    "content": "Good food for a good price",
+    "mealId": 2,
+    "createdAt": 11223
+  },
+  {
+    "id": 3,
+    "numberOfStars": 1,
+    "content": "Just one time try",
+    "mealId": 3,
+    "createdAt": 22245
+  }
+]
