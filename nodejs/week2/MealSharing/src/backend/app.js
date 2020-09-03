@@ -11,6 +11,16 @@ const meals = require('./routes/meals.js');
 app.get('/meals', (request, response) => {
   response.send(meals);
 });
+
+app.get('/meals/:id', async (req, res) => {
+  let result = res.json(
+    meals.filter((data) => {
+      if (data.id === parseInt(req.params.id)) return;
+    })
+  );
+  res.send(result);
+});
+
 app.get('/cheap-meals', (request, response) => {
   response.send(cheapMeal);
 });

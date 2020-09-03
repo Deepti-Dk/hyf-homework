@@ -16,6 +16,7 @@ for (let i = 0; i < meal.length; i++) {
   }
 }
 
+//module.exports = meal;
 // const express = require('express');
 // const router = express.Router();
 // let meals = require('../data/meals.json');
@@ -34,5 +35,3 @@ for (let i = 0; i < meal.length; i++) {
 //   );
 // });
 // module.exports = router;
-
-module.exports = meal;
