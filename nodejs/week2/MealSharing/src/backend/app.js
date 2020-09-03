@@ -13,12 +13,16 @@ app.get('/meals', (request, response) => {
 });
 
 app.get('/meals/:id', async (req, res) => {
-  let result = res.json(
-    meals.filter((data) => {
-      if (data.id === parseInt(req.params.id)) return;
-    })
-  );
-  res.send(result);
+  let result = meals.filter((data) => {
+    if (data.id === parseInt(req.params.id)) return true;
+  });
+  if (result.length != 0) {
+    res.send(result);
+  } else {
+    res
+      .status(404) // HTTP status 404: NotFound
+      .send('Not found');
+  }
 });
 
 app.get('/cheap-meals', (request, response) => {
