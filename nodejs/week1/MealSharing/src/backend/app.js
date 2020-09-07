@@ -27,9 +27,4 @@ app.get('/reservation', (request, response) => {
   response.send(randomReservation);
 });
 
-// const server = app.listen(3000, function () {
-// 	console.log(`> Ready on http://localhost:3000`);
-// });
-
-// // Export app for testing purposes
 module.exports = app;
