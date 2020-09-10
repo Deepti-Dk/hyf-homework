@@ -1,5 +1,8 @@
 const meal = require('../data/meals.json');
 
-let random = Math.floor(Math.random() * meal.length);
+function getRandomMeal() {
+  let randomMeal = meal[Math.floor(Math.random() * meal.length)];
+  return randomMeal;
+}
 
-module.exports = meal[random];
+module.exports = getRandomMeal;
