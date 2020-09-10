@@ -1,0 +1,19 @@
+{
+  "name": "temp",
+  "version": "1.0.0",
+  "description": "Basic calculator",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run server",
+    "start": "node ./Calculator/index.js",
+    "server": "nodemon ./Calculator/index.js"
+  },
+  "author": "Deepti",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
