@@ -3,9 +3,9 @@ const meals = require('../data/meals.json');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (request, response) => {
-  response.send(meals);
-});
+// router.get('/', (request, response) => {
+//   response.send(meals);
+// });
 router.get('/:id', async (req, res) => {
   let result = meals.filter((data) => {
     if (data.id === parseInt(req.params.id)) return true;
@@ -23,6 +23,8 @@ router.get('/', async (req, res) => {
   /**maxPrice	Get meals that has a price smaller than maxPrice	Number	/meals?maxPrice=90 */
   if (req.query.maxPrice) {
     res.send(meals.filter((data) => data.price < Number(req.query.maxPrice)));
+  } else {
+    res.send(meals);
   }
 
   /**title	Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde	String	/meals?title=Indian%20platter */
@@ -30,11 +32,19 @@ router.get('/', async (req, res) => {
     res.send(
       meals.filter((data) => data.title.includes(String(req.query.title)))
     );
+  } else {
+    res.send(meals);
   }
 
   /**createdAfter	Get meals that has been created after the date	Date	/meals?createdAfter=2019-04-05 */
   if (req.query.createdAfter) {
-    res.send(meals.filter((data) => data.createdDate > req.query.createdAfter));
+    res.send(
+      meals.filter(
+        (data) => Date.parse(data.createdDate) > Number(req.query.createdAfter)
+      )
+    );
+  } else {
+    res.send(meals);
   }
 
   /**limit	Only specific number of meals	Number	/meals?limit=4 */
@@ -44,6 +54,8 @@ router.get('/', async (req, res) => {
       limitMeals.push(meals[i]);
     }
     res.send(limitMeals);
+  } else {
+    res.send(meals);
   }
 });
 module.exports = router;
