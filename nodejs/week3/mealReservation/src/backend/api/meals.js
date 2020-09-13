@@ -31,7 +31,7 @@ router.get('/', async (request, response) => {
         .select('*')
         .orderBy('id')
         .limit(Number(request.query.limit));
-    } else if (request.query.availableReservations) {
+    } else if (request.query.availableReservations === 'true') {
       meals = await knex('meal')
         .select('meal.*')
         .count('reservation.id')

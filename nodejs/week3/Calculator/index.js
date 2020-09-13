@@ -32,8 +32,8 @@ const addition = async ({ firstParam, secondParam }) => {
 };
 app.post('/calculator/add', async (request, response) => {
   addition({
-    firstParam: Number(request.query.firstParam),
-    secondParam: Number(request.query.secondParam),
+    firstParam: Number(request.body.firstParam),
+    secondParam: Number(request.body.secondParam),
   })
     .then((result) => response.json(result))
     .catch((error) => {
@@ -47,8 +47,8 @@ const substration = async ({ firstParam, secondParam }) => {
 };
 app.post('/calculator/substract', async (request, response) => {
   substration({
-    firstParam: Number(request.query.firstParam),
-    secondParam: Number(request.query.secondParam),
+    firstParam: Number(request.body.firstParam),
+    secondParam: Number(request.body.secondParam),
   })
     .then((result) => response.json(result))
     .catch((error) => {
@@ -62,8 +62,8 @@ const multiplication = async ({ firstParam, secondParam }) => {
 };
 app.post('/calculator/multiply', async (request, response) => {
   multiplication({
-    firstParam: Number(request.query.firstParam),
-    secondParam: Number(request.query.secondParam),
+    firstParam: Number(request.body.firstParam),
+    secondParam: Number(request.body.secondParam),
   })
     .then((result) => response.json(result))
     .catch((error) => {
@@ -77,8 +77,8 @@ const division = async ({ firstParam, secondParam }) => {
 };
 app.post('/calculator/divide', async (request, response) => {
   division({
-    firstParam: Number(request.query.firstParam),
-    secondParam: Number(request.query.secondParam),
+    firstParam: Number(request.body.firstParam),
+    secondParam: Number(request.body.secondParam),
   })
     .then((result) => response.json(result))
     .catch((error) => {
