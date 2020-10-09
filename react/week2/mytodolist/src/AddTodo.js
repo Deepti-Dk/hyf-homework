@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 //prop-parameter for component(which is a func)
@@ -36,6 +36,22 @@ const AddToDo = () => {
   const deleteTodo = (id) => {
     setTodos(todos.filter((item) => item.id !== id));
   };
+
+  const toggleToDo = (id) => {
+    setTodos(
+      todos.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            status: !item.status,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
   return (
     <div>
       <input
@@ -50,10 +66,17 @@ const AddToDo = () => {
       <ol>
         {todos.map((item) => (
           <li key={item.id}>
-            <span id="List-item">{item.description}</span>
-            <input id="checkbox" type="checkbox" />
+            <span className="description" data-toggled={!item.status}>
+              {item.description}
+            </span>
+            <input
+              type="checkbox"
+              checked={!item.status}
+              onChange={() => {
+                toggleToDo(item.id);
+              }}
+            />
             <button
-              id="Delete-button"
               type="button"
               onClick={() => {
                 deleteTodo(item.id);
