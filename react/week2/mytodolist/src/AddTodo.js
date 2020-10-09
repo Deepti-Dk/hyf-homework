@@ -22,7 +22,8 @@ const AddToDo = () => {
   ]);
 
   const addToDo = () => {
-    setTodos([...todos, { id: 4, description: inputValue, status: true }]);
+    const newId = Math.max(...todos.map((item) => item.id)) + 1;
+    setTodos([...todos, { id: newId, description: inputValue, status: true }]); //parameter spread
     setInputValue('');
   };
 
