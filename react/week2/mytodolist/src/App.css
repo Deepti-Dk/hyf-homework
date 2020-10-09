@@ -42,8 +42,6 @@
   margin: auto;
 }
 
-#List-item,
-#checkbox,
-#Delete-button {
-  display: inline;
+.description[data-toggled='true'] {
+  text-decoration: line-through;
 }
