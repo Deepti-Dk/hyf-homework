@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+//prop-parameter for component(which is a func)
+
 const AddToDo = () => {
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([
@@ -22,11 +24,18 @@ const AddToDo = () => {
   ]);
 
   const addToDo = () => {
-    const newId = Math.max(...todos.map((item) => item.id)) + 1;
+    let newId = Math.max(...todos.map((item) => item.id)) + 1;
+    if (todos.length === 0) {
+      newId = 0;
+    }
     setTodos([...todos, { id: newId, description: inputValue, status: true }]); //parameter spread
+
     setInputValue('');
   };
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((item) => item.id !== id));
+  };
   return (
     <div>
       <input
@@ -43,7 +52,13 @@ const AddToDo = () => {
           <li key={item.id}>
             <span id="List-item">{item.description}</span>
             <input id="checkbox" type="checkbox" />
-            <button id="Delete-button" type="button">
+            <button
+              id="Delete-button"
+              type="button"
+              onClick={() => {
+                deleteTodo(item.id);
+              }}
+            >
               Delete
             </button>
           </li>
