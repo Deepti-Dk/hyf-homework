@@ -6,6 +6,10 @@ const MyToDo = () => {
   const [inputDateValue, setInputDateValue] = useState('');
   const [todos, setTodos] = useState([]);
 
+  const [idEdit, setIdEdit] = useState(null);
+  const [inputValueEdit, setInputValueEdit] = useState('');
+  const [inputDateValueEdit, setInputDateValueEdit] = useState('');
+
   useEffect(() => {
     fetch(
       'https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw'
@@ -40,14 +44,6 @@ const MyToDo = () => {
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((item) => item.id !== id));
-  };
-
-  const editTodo = (id) => {
-    let newTodo = todos.filter((item) => item.id === id).slice(1);
-
-    // setTodos([...todos, setTodos {newTodo} ]);
-    // setInputValue('');
-    // setInputDateValue('');
   };
 
   const toggleToDo = (id) => {
@@ -94,9 +90,31 @@ const MyToDo = () => {
       <ol className="list">
         {todos.map((item) => (
           <li className="list-row" key={item.id}>
-            <span className="description" data-toggled={!item.status}>
-              {item.description} | {item.deadline} |
-            </span>
+            {item.id === idEdit ? (
+              <span className="description">
+                <input
+                  type="text"
+                  className="input-text"
+                  value={inputValueEdit}
+                  onChange={(event) => {
+                    setInputValueEdit(event.target.value);
+                  }}
+                />
+                <input
+                  type="date"
+                  className="input-text"
+                  value={inputDateValueEdit}
+                  onChange={(event) => {
+                    setInputDateValueEdit(event.target.value);
+                  }}
+                />
+              </span>
+            ) : (
+              <span className="description" data-toggled={!item.status}>
+                {item.description} | {item.deadline} |
+              </span>
+            )}
+
             <input
               className="checkbox"
               type="checkbox"
@@ -118,11 +136,29 @@ const MyToDo = () => {
               className="edit-button"
               type="button"
               onClick={() => {
-                // <a href="main" />;
-                editTodo(item.id);
+                if (item.id === idEdit) {
+                  setIdEdit(null);
+                  setTodos(
+                    todos.map((toDoItem) => {
+                      if (toDoItem.id === idEdit) {
+                        return {
+                          ...toDoItem,
+                          description: inputValueEdit,
+                          deadline: inputDateValueEdit,
+                        };
+                      } else {
+                        return toDoItem;
+                      }
+                    })
+                  );
+                } else {
+                  setIdEdit(item.id);
+                  setInputValueEdit(item.description);
+                  setInputDateValueEdit(item.deadline);
+                }
               }}
             >
-              Edit
+              {item.id === idEdit ? 'Update' : 'Edit'}
             </button>
           </li>
         ))}
