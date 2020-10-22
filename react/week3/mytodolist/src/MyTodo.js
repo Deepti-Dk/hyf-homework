@@ -4,36 +4,21 @@ import './App.css';
 const MyToDo = () => {
   const [inputValue, setInputValue] = useState('');
   const [inputDateValue, setInputDateValue] = useState('');
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      description: 'Get out of bed',
-      deadline: '10 / 10 / 2020',
-      status: true,
-    },
-    {
-      id: 2,
-      description: 'Brush teeth',
-      deadline: '15 / 10 / 2020',
-      status: true,
-    },
-    {
-      id: 3,
-      description: 'Eat breakfast',
-      deadline: '20 / 10 / 2020',
-      status: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
-  // useEffect(() => {
-  //   fetch(
-  //     'https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw'
-  //   )
-  //     .then((results) => results.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, [todos]);
+  useEffect(() => {
+    fetch(
+      'https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw'
+    )
+      .then((results) => results.json())
+      .then((data) => {
+        setTodos(
+          data.map((item) => {
+            return { ...item, status: true };
+          })
+        );
+      });
+  }, []);
 
   const addToDo = () => {
     let newId = Math.max(...todos.map((item) => item.id)) + 1;
