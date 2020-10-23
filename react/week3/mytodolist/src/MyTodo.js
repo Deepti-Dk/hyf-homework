@@ -63,29 +63,35 @@ const MyToDo = () => {
 
   return (
     <div id="main" className="main-todo">
-      <label>Todo description :</label>
-      <input
-        type="text"
-        className="input-text"
-        onChange={(event) => {
-          setInputValue(event.target.value);
-        }}
-        value={inputValue}
-      />
-      <br />
-      <br />
-      <label>Deadline: </label>
-      <input
-        type="date"
-        className="input-text"
-        onChange={(event) => {
-          setInputDateValue(event.target.value);
-        }}
-        value={inputDateValue}
-      />
-      <br />
-      <br />
-      <button onClick={addToDo}>Add ToDo</button>
+      <div className="top-inputs">
+        <label>
+          <strong>Todo description:</strong>{' '}
+        </label>
+        <input
+          type="text"
+          className="input-text"
+          onChange={(event) => {
+            setInputValue(event.target.value);
+          }}
+          value={inputValue}
+        />
+        <br />
+        <br />
+        <label>
+          <strong>Deadline:</strong>{' '}
+        </label>
+        <input
+          type="date"
+          className="input-text"
+          onChange={(event) => {
+            setInputDateValue(event.target.value);
+          }}
+          value={inputDateValue}
+        />
+        <br />
+        <br />
+        <button onClick={addToDo}>Add ToDo</button>
+      </div>
 
       <ol className="list">
         {todos.map((item) => (

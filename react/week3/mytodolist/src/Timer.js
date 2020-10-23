@@ -10,7 +10,11 @@ const Timer = () => {
       clearInterval(t);
     };
   }, [value]);
-  return <div>You have used {value} seconds on this website</div>;
+  return (
+    <div className="timer">
+      You have used <strong>{value}</strong> seconds on this website
+    </div>
+  );
 };
 
 export default Timer;
