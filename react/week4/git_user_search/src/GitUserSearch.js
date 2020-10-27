@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDebounce } from 'use-debounce';
 import './App.css';
+import img from './images/github.png';
 
 const GitUserSearch = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [debouncedSearchValue] = useDebounce(searchValue, 1000);
+
   const myRef = useRef();
 
   const onChange = (e) => {
@@ -10,19 +15,28 @@ const GitUserSearch = () => {
   };
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${searchValue}`)
-      .then((results) => results.json())
-      .then((data) => {
-        console.log(data.login);
-      });
+    if (debouncedSearchValue !== '') {
+      fetch(`https://api.github.com/search/users?q=${debouncedSearchValue}`) //debouncing-to deal with api time-outs
+        .then((results) => results.json())
+        .then((data) => {
+          setSearchResults(data.items.map((user) => user.login));
+        });
+    } else {
+      setSearchResults([]);
+    }
+  }, [debouncedSearchValue]);
 
+  useEffect(() => {
     if (myRef && myRef.current) {
       myRef.current.focus();
     }
-  }, [myRef, searchValue]);
+  }, [myRef]);
 
   return (
     <div>
+      <img className="git-image" src={img} alt="" />
+      <br />
+      <br />
       <input
         ref={myRef}
         type="text"
@@ -31,8 +45,13 @@ const GitUserSearch = () => {
         onChange={onChange}
         value={searchValue}
       />
+
       <div>
-        <p>{searchValue} </p>
+        <ul>
+          {searchResults.map((user) => (
+            <li key={user}>{user}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
