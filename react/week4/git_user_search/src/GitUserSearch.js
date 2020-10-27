@@ -8,17 +8,29 @@ const GitUserSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [debouncedSearchValue] = useDebounce(searchValue, 1000);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const myRef = useRef();
 
   const onChange = (e) => {
     setSearchValue(e.target.value);
+    setLoading(true);
   };
 
   useEffect(() => {
     if (debouncedSearchValue !== '') {
       fetch(`https://api.github.com/search/users?q=${debouncedSearchValue}`) //debouncing-to deal with api time-outs
-        .then((results) => results.json())
+        .then((results) => {
+          if (results.ok) {
+            setError(false);
+            return results.json();
+          } else {
+            setError(true);
+          }
+        })
         .then((data) => {
+          setLoading(false);
           setSearchResults(data.items.map((user) => user.login));
         });
     } else {
@@ -47,11 +59,14 @@ const GitUserSearch = () => {
       />
 
       <div>
+        {loading === true && <p>Loading...</p>}
+        {error === true && <p>Error loading...</p>}
         <ul>
-          {searchResults.map((user) => (
-            <li key={user}>{user}</li>
-          ))}
+          {!error && searchResults.map((user) => <li key={user}>{user}</li>)}
         </ul>
+        {!error && searchValue !== '' && searchResults.length === 0 && (
+          <p>No users found...</p>
+        )}
       </div>
     </div>
   );
