@@ -9,9 +9,31 @@ body {
 }
 
 .main {
-  padding: 2%;
+  padding: 1%;
   text-align: center;
   color: white;
+}
+
+.nav-bar {
+  list-style: none;
+  background-color: white;
+  border-top: 5px double black;
+  border-bottom: 5px double black;
+  height: 20px;
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+  padding: 0.5%;
+}
+
+.nav-bar-item {
+  float: right;
+  display: inline;
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 2%;
+  padding-right: 2%;
+  text-decoration: none;
 }
 
 .git-image {
@@ -28,23 +50,27 @@ ul {
   list-style: none;
 }
 
-.nav-bar {
-  list-style: none;
+.main-about {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 1%;
+  background-color: white;
+  color: black;
+  border-top: 10px double black;
+  border-bottom: 10px double black;
+}
+
+.footer {
   background-color: white;
   border-top: 5px double black;
   border-bottom: 5px double black;
   height: 20px;
-  margin: 0px auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 0.5%;
-}
-
-.nav-bar-item {
-  float: right;
-  display: inline;
-  /* color: black; */
+  font-style: italic;
   font-weight: bold;
-  font-size: 18px;
-  padding-left: 2%;
-  padding-right: 2%;
-  text-decoration: none;
+  color: black;
 }
