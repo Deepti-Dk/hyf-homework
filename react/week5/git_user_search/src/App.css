@@ -1,48 +1,16 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-image: url('./images/bgblackrose.jpg');
+  opacity: 0.75;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .main {
   padding: 2%;
   text-align: center;
-  background-color: black;
-  background-image: url('./images/bgblackrose.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   color: white;
 }
 
@@ -51,10 +19,32 @@
   width: 100px;
   position: relative;
 }
+
 .input-text {
   font-size: 20px;
 }
 
 ul {
   list-style: none;
+}
+
+.nav-bar {
+  list-style: none;
+  background-color: white;
+  border-top: 5px double black;
+  border-bottom: 5px double black;
+  height: 20px;
+  margin: 0px auto;
+  padding: 0.5%;
+}
+
+.nav-bar-item {
+  float: right;
+  display: inline;
+  /* color: black; */
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 2%;
+  padding-right: 2%;
+  text-decoration: none;
 }
