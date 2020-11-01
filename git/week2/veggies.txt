@@ -1,5 +1,5 @@
 tomatoes
 potatoes
-onions
+onions-NOT RED 
 broccoli
 cauliflower
