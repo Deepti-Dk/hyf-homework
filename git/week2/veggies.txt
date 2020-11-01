@@ -1,7 +1,5 @@
 tomatoes
 potatoes
-onions-red only
+onions-NOT RED 
 broccoli
 cauliflower
-aubergine
-parsnips
