@@ -19,14 +19,14 @@ function About() {
         <p>
           As the name says, GitHub Search is used to search for GitHub Users.
           <br />
-          It also provides a profile overview of the selected user.
+          It also provides a profile overview for the selected user.
         </p>
         <h2>Technologies Used:</h2>
         <ul>
           <li>HTML</li>
           <li>CSS</li>
           <li>Javascript</li>
-          <li>React Native</li>
+          <li>React</li>
         </ul>
       </div>
       <footer className="footer">Developed by: Deepti Sharma</footer>

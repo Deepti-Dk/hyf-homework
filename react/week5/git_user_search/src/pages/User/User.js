@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const User = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
+  const [userInfo, setUserInfo] = useState('');
+  useEffect(() => {
+    fetch(`https://api.github.com/user/${id}`)
+      .then((req) => req.json())
+      .then((result) => {
+        setUserInfo(result);
+      });
+    // console.log('got id', id);
+  }, [id]);
 
-  // useEffect(() => {
-  //   fetch('https://localhost:3001/api/user/1');
-  //   console.log('got id', id);
-  // }, [id]);
-
-  // return <div>This is my user with id: ${id}</div>;
   return (
-    <div>
-      <p>This is my USER page</p>
+    <div className="main">
+      {/* <img src={userInfo.avatar_url} alt="user-avatar" />
+      <ul>
+        <h1>{userInfo.name}</h1>
+        <li>Followers: {userInfo.followers}</li>
+        <li>Following: {userInfo.following}</li>
+        <li>Repositories: {userInfo.public_repos}</li>
+        <li>Location: {userInfo.location}</li>
+      </ul>  */}
     </div>
   );
 };

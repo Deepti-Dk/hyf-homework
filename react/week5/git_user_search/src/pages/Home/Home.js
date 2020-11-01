@@ -31,8 +31,9 @@ const Home = () => {
           }
         })
         .then((data) => {
+          console.log(data.items);
           setLoading(false);
-          setSearchResults(data.items.map((user) => user.login));
+          setSearchResults(data.items);
         });
     } else {
       setSearchResults([]);
@@ -71,7 +72,23 @@ const Home = () => {
         {loading === true && <p>Loading...</p>}
         {error === true && <p>Error loading...</p>}
         <ul>
-          {!error && searchResults.map((user) => <li key={user}>{user}</li>)}
+          {!error &&
+            searchResults.map((user) => {
+              return (
+                <div key={user.id}>
+                  {/* {console.log('user', user)} */}
+                  <img
+                    src={user.avatar_url}
+                    alt="user avatar"
+                    id="search-user-image"
+                  />
+                  <li>{user}</li>
+                  <Link to={`/user/${user.id}`} id="search-user-name">
+                    {user.login}
+                  </Link>
+                </div>
+              );
+            })}
         </ul>
         {!error && searchValue !== '' && searchResults.length === 0 && (
           <p>No users found...</p>

@@ -10,10 +10,11 @@ function App() {
   return (
     <div className="main">
       <Router>
+        {/* <Home /> */}
         <Switch>
           <Route path="/Home" exact component={Home} />
           <Route path="/About" component={About} />
-          <Route path="/User/id" component={User} />
+          <Route path="/User/:id" component={User} />
         </Switch>
       </Router>
     </div>
