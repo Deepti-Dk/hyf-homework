@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDebounce } from 'use-debounce';
 import { Link } from 'react-router-dom';
-import '/Users/deept/Desktop/hyf-homework/react/week5/git_user_search/src/App.css';
-import img from '../images/github.png';
+import '../../App.css';
+import img from '../../images/github.png';
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState('');

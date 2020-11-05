@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '/Users/deept/Desktop/hyf-homework/react/week5/git_user_search/src/App.css';
+import '../../App.css';
 // import Home from './pages/Home';
 
 function About() {
