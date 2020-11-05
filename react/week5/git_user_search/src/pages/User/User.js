@@ -16,7 +16,7 @@ const User = () => {
   }, [id]);
 
   if (userInfo === null) {
-    return 'Loading...';
+    return <p>'Loading...'</p>;
   }
 
   return (
