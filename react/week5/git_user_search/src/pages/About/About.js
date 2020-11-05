@@ -8,7 +8,7 @@ function About() {
     <div>
       <ul className="nav-bar">
         <li className="nav-bar-item">
-          <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
             Home
           </Link>
         </li>

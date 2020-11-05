@@ -75,18 +75,18 @@ const Home = () => {
           {!error &&
             searchResults.map((user) => {
               return (
-                <div key={user.id}>
+                <li key={user.id}>
                   {/* {console.log('user', user)} */}
-                  <img
-                    src={user.avatar_url}
-                    alt="user avatar"
-                    id="search-user-image"
-                  />
-                  <li>{user}</li>
+
                   <Link to={`/user/${user.id}`} id="search-user-name">
-                    {user.login}
+                    <img
+                      src={user.avatar_url}
+                      alt="user avatar"
+                      id="search-user-image"
+                    />
+                    <span>{user.login}</span>
                   </Link>
-                </div>
+                </li>
               );
             })}
         </ul>
