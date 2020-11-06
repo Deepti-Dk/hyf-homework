@@ -93,7 +93,7 @@ const Home = () => {
           <p>No users found...</p>
         )}
       </div>
-      <footer className="footer">Developed by: Deepti Sharma</footer>
+      <footer className="footer-home">Developed by: Deepti Sharma</footer>
     </div>
   );
 };
