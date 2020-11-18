@@ -1,5 +1,5 @@
 tomatoes
 potatoes
-onions-NOT RED 
+onions-NOT RED changed to peberfrugt
 broccoli
 cauliflower
