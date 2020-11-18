@@ -1,5 +1,5 @@
 tomatoes
 potatoes
-onions
+onions - ANYCOLOR
 cauliflower
 broccoli
